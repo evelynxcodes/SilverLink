@@ -1,0 +1,25 @@
+{
+  "name": "silverlink-api-gateway",
+  "version": "1.0.0",
+  "description": "SilverLink API Gateway — auth, routing, rate limiting",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-http-proxy": "^2.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "express-rate-limit": "^7.3.1",
+    "redis": "^4.6.14",
+    "morgan": "^1.10.0",
+    "helmet": "^7.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express-validator": "^7.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

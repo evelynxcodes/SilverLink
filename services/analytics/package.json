@@ -1,0 +1,21 @@
+{
+  "name": "silverlink-analytics",
+  "version": "1.0.0",
+  "description": "SilverLink Analytics Service — health trends, activity patterns, risk scoring",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "@influxdata/influxdb-client": "^1.33.2",
+    "pg": "^8.11.5",
+    "morgan": "^1.10.0",
+    "dotenv": "^16.4.5",
+    "express-validator": "^7.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

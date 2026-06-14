@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "silverlink/alert",
+  "title": "SilverLink Device Alert Payload",
+  "type": "object",
+  "required": ["deviceSerial", "elderlyId", "timestamp", "alertType", "severity"],
+  "properties": {
+    "deviceSerial": { "type": "string" },
+    "elderlyId": { "type": "string", "format": "uuid" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "alertType": {
+      "type": "string",
+      "enum": [
+        "FALL_DETECTED",
+        "SOS_PRESSED",
+        "HEART_RATE_HIGH",
+        "HEART_RATE_LOW",
+        "SPO2_LOW",
+        "INACTIVITY",
+        "WANDERING",
+        "STOVE_ON_LONG",
+        "DOOR_OPEN_NIGHT",
+        "GAS_DETECTED",
+        "LOW_BATTERY"
+      ]
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"]
+    },
+    "confirmed": {
+      "type": "boolean",
+      "description": "Whether user confirmed the alert on device (e.g. not a false fall)"
+    },
+    "data": {
+      "type": "object",
+      "description": "Alert-specific payload"
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "lat": { "type": "number" },
+        "lng": { "type": "number" },
+        "accuracy": { "type": "number" }
+      }
+    }
+  }
+}

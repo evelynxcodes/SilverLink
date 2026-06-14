@@ -1,0 +1,93 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "silverlink/telemetry",
+  "title": "SilverLink Device Telemetry Payload",
+  "type": "object",
+  "required": ["deviceSerial", "elderlyId", "timestamp", "type"],
+  "properties": {
+    "deviceSerial": {
+      "type": "string",
+      "description": "Hardware serial number of the device"
+    },
+    "elderlyId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["VITALS", "LOCATION", "ACTIVITY", "HEARTBEAT", "ENVIRONMENT"]
+    },
+    "vitals": {
+      "type": "object",
+      "properties": {
+        "heartRate": { "type": "integer", "minimum": 20, "maximum": 300 },
+        "spO2": { "type": "number", "minimum": 50, "maximum": 100 },
+        "bodyTemp": { "type": "number", "minimum": 30, "maximum": 45 },
+        "systolicBP": { "type": "integer" },
+        "diastolicBP": { "type": "integer" }
+      }
+    },
+    "location": {
+      "type": "object",
+      "required": ["lat", "lng"],
+      "properties": {
+        "lat": { "type": "number", "minimum": -90, "maximum": 90 },
+        "lng": { "type": "number", "minimum": -180, "maximum": 180 },
+        "accuracy": { "type": "number" },
+        "altitude": { "type": "number" },
+        "speed": { "type": "number" }
+      }
+    },
+    "activity": {
+      "type": "object",
+      "properties": {
+        "steps": { "type": "integer", "minimum": 0 },
+        "activeMinutes": { "type": "integer" },
+        "calories": { "type": "number" },
+        "activityLevel": {
+          "type": "string",
+          "enum": ["SEDENTARY", "LIGHT", "MODERATE", "VIGOROUS"]
+        },
+        "posture": {
+          "type": "string",
+          "enum": ["STANDING", "SITTING", "LYING", "WALKING", "UNKNOWN"]
+        }
+      }
+    },
+    "accelerometer": {
+      "type": "object",
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "z": { "type": "number" },
+        "magnitude": { "type": "number" }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "description": "From HOME_HUB sensors",
+      "properties": {
+        "roomTemp": { "type": "number" },
+        "humidity": { "type": "number" },
+        "gasDetected": { "type": "boolean" },
+        "smokeDetected": { "type": "boolean" },
+        "motionDetected": { "type": "boolean" },
+        "doorOpen": { "type": "boolean" },
+        "stoveOn": { "type": "boolean" },
+        "stoveOnMinutes": { "type": "integer" }
+      }
+    },
+    "device": {
+      "type": "object",
+      "properties": {
+        "battery": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "signalStrength": { "type": "integer" },
+        "wifiConnected": { "type": "boolean" }
+      }
+    }
+  }
+}

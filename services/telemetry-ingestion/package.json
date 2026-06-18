@@ -1,0 +1,23 @@
+{
+  "name": "silverlink-telemetry-ingestion",
+  "version": "1.0.0",
+  "description": "SilverLink Telemetry Ingestion — MQTT subscriber, InfluxDB writer, Kafka producer",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "mqtt": "^5.3.4",
+    "kafkajs": "^2.2.4",
+    "@influxdata/influxdb-client": "^1.33.2",
+    "ajv": "^8.16.0",
+    "uuid": "^9.0.1",
+    "morgan": "^1.10.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

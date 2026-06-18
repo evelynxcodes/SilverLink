@@ -1,0 +1,22 @@
+{
+  "name": "silverlink-notification",
+  "version": "1.0.0",
+  "description": "SilverLink Notification Service — push, SMS, email via Kafka-driven alerts",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "kafkajs": "^2.2.4",
+    "pg": "^8.11.5",
+    "axios": "^1.6.8",
+    "uuid": "^9.0.1",
+    "morgan": "^1.10.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
